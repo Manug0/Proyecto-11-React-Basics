@@ -1,5 +1,5 @@
 import React from "react";
-import { Api } from "../components/Api";
+import Api from "../components/Api";
 
 const Crypto = () => {
 	return (

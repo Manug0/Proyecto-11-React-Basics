@@ -1,9 +1,9 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
-import Crypto from "./Crypto";
+import CryptoLogo from "./CryptoLogo";
+import axios from "axios";
 
-const Api = () => {
-	const [crypto, setCrypto] = useState([]);
+const CryptoHome = () => {
+	const [cryptoRank, setCryptoRank] = useState([]);
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -15,7 +15,7 @@ const Api = () => {
 						"Accept-Encoding": "deflate, gzip",
 					},
 				});
-				setCrypto(res.data.data.slice(0, 10));
+				setCryptoRank(res.data.data.slice(0, 3));
 			} catch (error) {
 				console.log(error);
 			}
@@ -25,12 +25,12 @@ const Api = () => {
 	}, []);
 
 	return (
-		<div>
-			{crypto.map((crypto) => (
-				<Crypto key={crypto.id} crypto={crypto} />
+		<div className="cryptosHome">
+			{cryptoRank.map((crypto) => (
+				<CryptoLogo id={crypto.id} />
 			))}
 		</div>
 	);
 };
 
-export default Api;
+export default CryptoHome;

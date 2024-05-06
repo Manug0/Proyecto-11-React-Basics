@@ -1,5 +1,5 @@
 import React from "react";
-import { CryptoHome } from "../components/Api";
+import CryptoHome from "../components/CryptoHome";
 
 const Home = () => {
 	return (
